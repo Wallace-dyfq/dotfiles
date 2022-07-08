@@ -61,25 +61,39 @@
 
 
 (setq org-log-done t)
-(setq org-directory "/home/emacs/org")
-(setq org-default-notes-file "/home/emacs/org/refile.org")
+(setq org-directory "~/Documents/emacs/org")
+(setq org-default-notes-file "~/Documents/emacs/org/refile.org")
 (setq org-agenda-files (list                              ))
 (add-to-list 'auto-mode-alist '("\\.txt\\'" . org-mode))
 ;; Capture templates for: TODO tasks, Notes, appointments, phone calls, meetings, and org-protocol
 (setq org-capture-templates
-      (quote (("t" "todo" entry (file "/home/XXX/Dropbox/emacs/org/refile.org")
+      (quote (("t" "todo" entry (file "~/Documents/emacs/org/refile.org")
                "* TODO %?\n%U\n%a\n" :clock-in t :clock-resume t)
-              ("r" "respond" entry (file "/home/XXX/Dropbox/emacs/org/refile.org")
+              ("r" "respond" entry (file "~/Documents/emacs/org/refile.org")
                "* NEXT Respond to %:from on %:subject\nSCHEDULED: %t\n%U\n%a\n" :clock-in t :clock-resume t :immediate-finish t)
-              ("n" "note" entry (file "/home/XXX/Dropbox/emacs/org/refile.org")
+              ("n" "note" entry (file "~/Documents/emacs/org/refile.org")
                "* %? :NOTE:\n%U\n%a\n" :clock-in t :clock-resume t)
-              ("j" "Journal" entry (file+datetree "/home/XXX/Dropbox/emacs/org/journal2018.org")
+              ("j" "Journal" entry (file+datetree "~/Documents/emacs/org/journal2022.org")
                "* %?\n%T\n" :clock-in t :clock-resume t)
-              ("w" "org-protocol" entry (file "/home/XXX/Dropbox/emacs/org/refile.org")
+              ("w" "org-protocol" entry (file "~/Documents/emacs/org/refile.org")
                "* TODO Review %c\n%U\n" :immediate-finish t)
-              ("m" "Meeting" entry (file "/home/XXX/Dropbox/emacs/org/refile.org")
+              ("m" "Meeting" entry (file "~/Documents/emacs/org/refile.org")
                "* MEETING with %? :MEETING:\n%U" :clock-in t :clock-resume t)
-              ("p" "Phone call" entry (file "/home/XXX/Dropbox/emacs/org/refile.org")
+              ("p" "Phone call" entry (file "~/Documents/emacs/org/refile.org")
                "* PHONE %? :PHONE:\n%U" :clock-in t :clock-resume t)
-              ("h" "Habit" entry (file "/home/XXX/Dropbox/emacs/org/refile.org")
+              ("h" "Habit" entry (file "~/Documents/emacs/org/refile.org")
                "* NEXT %?\n%U\n%a\nSCHEDULED: %(format-time-string \"<%Y-%m-%d %a .+1d/3d>\")\n:PROPERTIES:\n:STYLE: habit\n:REPEAT_TO_STATE: NEXT\n:END:\n"))))
+
+
+(setq org-enable-roam-support t)
+
+
+(setq org-roam-directory "~/Documents/emacs/org/org-roam")
+
+(org-roam-db-autosync-mode)
+(setq org-enable-roam-ui t)
+
+
+;; for ipython notebook
+(setq ein:output-area-inlined-images t)
+(setq ein:slice-image t)
