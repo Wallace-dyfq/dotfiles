@@ -23,6 +23,7 @@ set ttyfast                 " Speed up scrolling in Vim
 " set noswapfile            " disable creating swap file
 " set backupdir=~/.cache/vim " Directory to store backup files.
 
+colorscheme desert
 call plug#begin('~/.config/nvim/plugged')
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
@@ -67,8 +68,11 @@ let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 let g:UltiSnipsEditSplit="vertical"
 map <C-n> :NERDTreeToggle<CR>
 map <C-p> :FZF<CR>
+nnoremap <silent><Leader>r :Rg <C-R><C-W><CR>
+nnoremap <silent><Leader>a :Ag <C-R><C-W><CR>
 " close vim if the only window left open is a NERDTree
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 nmap <C-b> :TagbarToggle<CR>
 lua require'lspconfig'.pyright.setup{}
 lua require('config')
+
